@@ -1,0 +1,25 @@
+ int minStart = -1;
+    int minLength = Integer.MAX_VALUE;
+    int currentStart = 0;
+    int i=0;
+    for(;i<str.length();i++)
+    {
+        if(str.charAt(i)==' '){
+            int currentLength = i-currentStart;
+            if(currentLength<minLength){
+                minStart=currentStart;
+                minLength = currentLength;
+            }
+            currentStart= i+1;
+        }
+    }
+    //come out of for loop
+    if(minStart == -1){
+        return str;
+    }else{
+        int currentLength = i - currentStart;
+        if(currentLength<minLength){
+            minStart= currentStart;
+            minLength=currentLength;
+        }
+        return str.substring(minStart, minStart+minLength);
